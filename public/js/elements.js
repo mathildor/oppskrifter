@@ -92,12 +92,19 @@ showRecipeElements = function(recipies){
 // });
 
 function inList(el, list){
-    for(var i=0; i<list.lengt;i++){
+    console.log("Category is:");
+    console.log(el);
+    var exist=false;
+    for(var i=0; i<list.length; i++){
+        console.log("comparing");
+        console.log(list[i]);
+        console.log(el);
         if(list[i]==el){
-            return true;
+            console.log("Finnes!!!!");
+            exist=true;
         }
     }
-    return false;
+    return exist;
 }
 
 function saveNewRecipe(){
@@ -106,33 +113,33 @@ function saveNewRecipe(){
     ajaxGet("/categorys", function(res){
         console.log(res);
     });
-    //
-    // allowedCategories = ["Middag", "Frokost", "Dessert", "Snacks", "Forrett", "Bakeverk"];
-    // if(inList(newElement.category, allowedCategories)){
-    //     console.log('element to save is: ');
-    //     console.log(newElement);
-    //     recipe_id = window.location.href.split("?")[1];
-    //
-    //     if(editingMode == "True"){
-    //         console.log("Editing recipe");
-    //         ajaxPut("/recipes/"+recipe_id, newElement, function(){
-    //             console.log("element updated");
-    //             window.location.href="";
-    //         });
-    //         editingMode = "False";
-    //     }else{
-    //         console.log("Saving new recipe");
-    //         ajaxPost("/recipes", newElement, function(){
-    //             console.log('saved!');
-    //             // Reload page to show newly added recipe (if in active category)
-    //             showCategory(activeCategory);
-    //         });
-    //     }
-    //     //CLose popup
-    //     popup('popUpNewEvent');
-    // }else{
-    //     alert("Kategori finnes ikke. Husk stor forbokstav!");
-    // }
+
+    allowedCategories = ["Middag", "Frokost", "Dessert", "Snacks", "Forrett", "Bakeverk"];
+    if(inList(newElement.category, allowedCategories)){
+        console.log('element to save is: ');
+        console.log(newElement);
+        recipe_id = window.location.href.split("?")[1];
+
+        if(editingMode == "True"){
+            console.log("Editing recipe");
+            ajaxPut("/recipes/"+recipe_id, newElement, function(){
+                console.log("element updated");
+                window.location.href="";
+            });
+            editingMode = "False";
+        }else{
+            console.log("Saving new recipe");
+            ajaxPost("/recipes", newElement, function(){
+                console.log('saved!');
+                // Reload page to show newly added recipe (if in active category)
+                showCategory(activeCategory);
+            });
+        }
+        //CLose popup
+        popup('popUpNewEvent');
+    }else{
+        alert("Kategori finnes ikke. Husk stor forbokstav!");
+    }
 }
 
 //Both for popup and form at bottom of page
