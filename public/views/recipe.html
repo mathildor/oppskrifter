@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Oppskriftsbok</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="shortcut icon" type="image/png" href="https://www.itewiki.fi/images/info2/paikkatieto-gis.png"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href='../styles/recipe.min.css' rel='stylesheet' />
+    <link href='../styles/main-original.css' rel='stylesheet' />
+</head>
+<body>
+    <div id ="recipe_btns">
+        <button onclick="editRecipe()">Endre oppskrift</button>
+        <button onclick="deleteRecipe()">Slett oppskrift</button>
+    </div>
+<!-- load other layouts here: -->
+    <div id="content">
+    </div>
+
+    <div id="Blanket" style="display:none"></div>
+
+    <div id="popUpNewEvent" style="display:none">
+        <div id="close">
+            <a href="#" onclick="popup('popUpNewEvent')">x</a>
+        </div>
+        <div class="pop-up-new-event-container">
+            <h1> Endre oppskrift: </h1>
+            <form>
+                <input type="text" id="form-name" name="name" placeholder="Navn"><br>
+                <input type="text" id="form-image" name="photo" placeholder="Url for bilde"><br>
+                <!-- TODO: gjør om til dropdown med muligheter -->
+                <input type="text" id="form-category" name="photo" placeholder="Kategori"><br>
+                <textarea type="text" name="ingredienser" id="form-ingreedients" placeholder="Ingredienser"></textarea><br>
+                <textarea name="descripcion" id="form-todo" placeholder="Beskrivelse"></textarea><br>
+                <textarea name="comment" id="form-comment" placeholder="Kommentar"></textarea><br>
+                <input type="text" name="homepage" id="form-link" placeholder="Url til hjemmeside"><br>
+            </form>
+            <input type="submit" value="Oppdater oppskrift" id="saveEvent" onclick="saveNewRecipe()"></input>
+        </div>
+    </div>
+
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/popup.js"></script>
+<script type="text/javascript" src="../js/elements.js"></script>
+<script type="text/javascript" src="../js/recipe.js"></script>
+<!-- <script type="text/javascript" src="../js/form.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+</html>

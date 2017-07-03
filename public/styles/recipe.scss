@@ -1,0 +1,80 @@
+body{
+    width: 100vw;
+    height: 100vh;
+
+    #content{
+        margin-top: 40px;
+        width: 80%;
+        margin-left:auto;
+        margin-right: auto;
+
+        img{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            display: -webkit-box;
+        }
+        a{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            display: -webkit-box;
+            font-size: 16px;
+            margin-top: 7px;
+        }
+        h1{
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        #row_div{
+            display: -webkit-inline-box;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            display: -webkit-box;
+            margin-bottom: 50px;
+            #todo_div{
+                width: 60%;
+                h2{
+                    padding-left: 38px;
+                    margin-bottom: 20px;
+                }
+            }
+            #ing_div{
+                width: 40%;
+                background-color: rgba(128, 128, 128, 0.17);
+                padding-left: 22px;
+                margin: 15px;
+                margin-left: 0;
+                padding-left: 22px
+            }
+        }
+        li{
+            margin-bottom: 15px;
+        }
+        .simple{
+                list-style: none;
+        }
+    }
+    #recipe_btns{
+        position: absolute;
+        right: 0;
+        margin-right: 20px;
+        margin-top: -20px;
+        button{
+            margin-left: 5px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 7px;
+            background-color: #f98484;
+            padding: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            color: white;
+            width: 140px;
+        }
+    }
+}

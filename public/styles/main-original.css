@@ -1,0 +1,239 @@
+.space{
+    margin-top: 70px;
+}
+
+.to-do-boxes a:link{
+    text-decoration: none;
+    text-align: center;
+}
+a:hover{
+    text-decoration: none !important;
+}
+
+.to-do-box{
+    background-size: 100% 100%;
+    background-color: rgba(230, 233, 235, 0.5);;
+    color: white;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.to-do-box h2{
+    padding-top: 20px;
+}
+
+.to-do-box img{
+    width:20px;
+    height: auto;
+    padding-right: 5px;
+}
+.pp-location img{
+    width:10px;
+    height: auto;
+    padding-right: 5px;
+}
+
+#sidebar{
+    position: fixed;
+    top: 10%;
+    left: 78%;
+}
+
+.nav{
+    margin-top: 70px;
+}
+
+.nav>li.active {
+    border-left: 0;
+    border-left: 3px solid grey;
+    color: black;
+}
+
+.nav>li {
+    border-left: 3px solid #F5F5F5;
+    color: black;
+}
+.nav a{
+    color: grey;
+    font-weight: 500!important;
+    font-size: 17px;
+}
+#addEvent{
+    margin-top: 30px;
+}
+#addEventPhoto{
+    width: 40px;
+}
+
+#Blanket{
+    background-color:#111;
+    opacity: 0.65;
+    *background:none;
+    position:absolute;
+    z-index: 9001;
+    top:0px;
+    left:0px;
+    width:100%;
+}
+
+#popUpDiv, #popUpNewEvent {
+    position:absolute;
+    background:rgba(234,234,234,1);
+    height: auto;
+    z-index: 9002;
+}
+#popUpNewEvent{
+    top:80px!important;
+}
+#pop-up-container{
+    display: inline-block;
+}
+#img-div{
+    float: left;
+}
+#img-div img{
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+#recipe-content{
+    float: right;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 200px;
+}
+.text h2{
+    text-shadow: 2px 2px rgba(74, 74, 74, 0.37);
+    font-size: 1.8em;
+}
+
+#close{
+    margin-right: 10px;
+    position: absolute;
+    right: 0
+}
+#close a{
+    font-size: 21px;
+    color: white;
+}
+#close a:hover{
+    color: #c1c1c1;
+}
+.pop-up-container, .pop-up-new-event-container{
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pop-up-new-event-container input{
+    margin-top: 7px;
+    align-items: center;
+}
+.pop-up-new-event-container textarea{
+    margin-top: 7px;
+    align-items: center;
+}
+.pop-up-new-event-container{
+    width: 400px;
+    font: 95% Arial, Helvetica, sans-serif;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 16px;
+    background: #F7F7F7;
+}
+.pop-up-new-event-container h1{
+    background: #f38585;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -26px -16px 16px -16px;
+}
+.pop-up-new-event-container input[type="text"],
+.pop-up-new-event-container input[type="date"],
+.pop-up-new-event-container input[type="datetime"],
+.pop-up-new-event-container input[type="email"],
+.pop-up-new-event-container input[type="number"],
+.pop-up-new-event-container input[type="search"],
+.pop-up-new-event-container input[type="time"],
+.pop-up-new-event-container input[type="url"],
+.pop-up-new-event-container textarea,
+.pop-up-new-event-container select
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+.pop-up-new-event-container input[type="text"]:focus,
+.pop-up-new-event-container input[type="date"]:focus,
+.pop-up-new-event-container input[type="datetime"]:focus,
+.pop-up-new-event-container input[type="email"]:focus,
+.pop-up-new-event-container input[type="number"]:focus,
+.pop-up-new-event-container input[type="search"]:focus,
+.pop-up-new-event-container input[type="time"]:focus,
+.pop-up-new-event-container input[type="url"]:focus,
+.pop-up-new-event-container textarea:focus,
+.pop-up-new-event-container select:focus
+{
+    box-shadow: 0 0 5px #337ab7;
+    padding: 3%;
+    border: 1px solid #337ab7;
+}
+
+.pop-up-new-event-container input[type="submit"],
+.pop-up-container input[type="submit"],
+.pop-up-new-event-container input[type="button"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #f38585;
+    border-bottom: 2px solid #f38585;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+    font-size: 18px;
+}
+.pop-up-new-event-container input[type="submit"]:hover,
+.pop-up-container input[type="submit"]:hover,
+.pop-up-new-event-container input[type="button"]:hover{
+    background: #d66e6e;
+}
+.pop-up-container input[type="submit"]{
+    width: 80%;
+}
+
+.pop-up-container img{
+    width: 300px;
+}
+.pop-up-new-event-container img{
+    width: 300px;
+}
+
+#recipeContent{
+
+}
+#ingr{
+    list-style-type: none;
+    padding: 0;
+}
+
+.pp-homepage{
+    padding-top: 30px;
+    display: inherit;
+}

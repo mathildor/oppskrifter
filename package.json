@@ -1,0 +1,21 @@
+{
+  "name": "oppskriftsbok",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.8.6",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathildor/oppskriftsbok.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

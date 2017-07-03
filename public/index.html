@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Oppskriftsbok</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="shortcut icon" type="image/png" href="https://www.itewiki.fi/images/info2/paikkatieto-gis.png"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href='styles/main.min.css' rel='stylesheet' />
+    <link href='styles/main-original.css' rel='stylesheet' />
+</head>
+<body>
+
+<!-- load other layouts here: -->
+<div class="container">
+    <div class="row space"></div>
+    <div class="row">
+
+        <div class="col-sm-10" name="main page">
+            <div class="to-do-boxes">
+                <!-- first row for to-do -->
+                <div class="row" id="insert">
+                    <!--Here all the events go, added from js-->
+                </div>
+                <!-- end to-do boxes -->
+            </div>
+            <!-- end main page -->
+        </div>
+
+        <div id="Blanket" style="display:none"></div>
+
+        <div id="popUpDiv" style="display:none">
+            <div id="close">
+                <a href="#" onclick="popup('popUpDiv')">x</a>
+            </div>
+
+            <div class="pop-up-container" id="to-do-popup">
+                <div id="img-div">
+                    <img class="pop-up-photo">
+                </div>
+                <div id="recipe-content">
+                    <h2 class="pp-name"></h2>
+                    <ul class="ingredienser" id="ingr"></ul>
+                    <p class="descripcion"></p>
+                    <a class="pp-homepage">Homepage</a><br>
+                    <!-- <input type="submit" value="Done" id="eventDone"></input> -->
+                </div>
+            </div>
+
+        </div>
+
+        <div id="popUpNewEvent" style="display:none">
+            <div id="close">
+                <a href="#" onclick="popup('popUpNewEvent')">x</a>
+            </div>
+            <div class="pop-up-new-event-container">
+                <h1> Legg inn ny oppskrift: </h1>
+                <form>
+                    <input type="text" id="form-name" name="name" placeholder="Navn"><br>
+                    <input type="text" id="form-image" name="photo" placeholder="Url for bilde"><br>
+                    <!-- TODO: gjør om til dropdown med muligheter -->
+                    <input type="text" id="form-category" name="photo" placeholder="Kategori"><br>
+                    <textarea type="text" name="ingredienser" id="form-ingreedients" placeholder="Ingredienser"></textarea><br>
+                    <textarea name="descripcion" id="form-todo" placeholder="Beskrivelse"></textarea><br>
+                    <textarea name="comment" id="form-comment" placeholder="Kommentar"></textarea><br>
+                    <input type="text" name="homepage" id="form-link" placeholder="Url til hjemmeside"><br>
+                </form>
+                <input type="submit" value="Lagre ny oppskrift" id="saveEvent" onclick="saveNewRecipe()"></input>
+            </div>
+        </div>
+
+        <div id="sidebar" class="col-sm-2" name="info">
+            <div id="addRecipe">
+                <a href="#" onclick="popup('popUpNewEvent')">
+                    <img id="addEventPhoto" src="img/add_btn.png"></img>
+                </a>
+            </div>
+
+            <nav role="navigation" class="nav">
+                <ul class="nav nav-left">
+                    <li id="Forrett"class="sidebar-link" onclick="showCategory('Forrett')"><a>Forrett</a></li>
+                    <li id="Middag" class="sidebar-link" onclick="showCategory('Middag')"><a>Middag</a></li>
+                    <li id="Dessert" class="sidebar-link" onclick="showCategory('Dessert')"><a>Dessert</a></li>
+                    <li id="Frokost"class="sidebar-link" onclick="showCategory('Frokost')"><a>Frokost</a></li>
+                    <li id="Bakeverk"class="sidebar-link" onclick="showCategory('Bakeverk')"><a>Bakeverk</a></li>
+                    <li id="Snacks"class="sidebar-link" onclick="showCategory('Snacks')"><a>Snacks</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div id="popup-window" class="hide">
+    <img src="http://enlinea.tecniseguros.com.ec:8081/CotizadorVehiculos/imagenes/x.png" id='close-button'></img>
+    <h1>Add map element</h1>
+    <div class="input-div">
+        <input id="pop-name"placeholder="name"></input>
+        <input id="pop-catogry"placeholder="category"></input>
+        <input id="pop-link"placeholder="link"></input>
+        <input id="pop-img"placeholder="image"></input>
+        <input id="pop-todo"placeholder="todo"></input>
+        <input id="pop-ingreedients"placeholder="ingreedients"></input>
+        <input id="pop-comment"placeholder="comment"></input>
+    </div>
+    <button id="saveNewElement-btn"> Save </button>
+</div>
+
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/popup.js"></script>
+<script type="text/javascript" src="js/elements.js"></script>
+<!-- <script type="text/javascript" src="js/form.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+</html>
