@@ -1,5 +1,3 @@
-# whereToGo
+# Ingvilds kokebok
 
-## Run
-npm install
-npm start
+Webpage for saving recipes. 
