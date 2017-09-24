@@ -3,7 +3,7 @@ activeElementName="";
 var editingMode = "False";
 
 window.onload = function(){
-    showCategory("Bakeverk");
+    showCategory("Middag");
 };
 
 function ajaxGet(url, callback){
