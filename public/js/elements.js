@@ -23,15 +23,12 @@ emptyAllRecipeElements = function(){
 getCategory = function(type){
     ajaxGet("recipes/category/"+type, function(recipies){
     // ajaxGet("recipes/"+type, function(recipies){
-        console.log(recipies);
         showRecipeElements(recipies);
     });
 }
 
 openRecipe = function(){
     var rec_url="recipes/?" + event.target.getAttribute("db_id");
-    console.log("rec_url er:");
-    console.log(rec_url);
     window.location.href="/recipes/?"+event.target.getAttribute("db_id");
 }
 
@@ -53,8 +50,6 @@ showRecipeElements = function(recipies){
         link.setAttribute("onclick", "openRecipe()");
         //Må jeg sette tom id også?
         var td=document.createElement("div");
-        console.log("id er: ");
-        console.log(recipies[i]._id);
         td.setAttribute("db_id", recipies[i]._id);
         td.setAttribute("class","to-do-box");
         td.setAttribute("id",i);
@@ -115,34 +110,44 @@ function saveNewRecipe(){
     });
 
     allowedCategories = ["Middag", "Frokost", "Dessert", "Snacks", "Forrett", "Bakeverk"];
-    if(inList(newElement.category, allowedCategories)){
+
+    //Set dummy values on missing information:
+    if(document.getElementById('form-comment').value.length <1){
+        console.log("comment not filled - set to dummy variable");
+        document.getElementById('form-comment').value="-";
+    }
+
+    var form_ingreedients = document.getElementById('form-ingreedients');
+    var form_todo = document.getElementById('form-todo');
+    // console.log(form_ingreedients.value)
+    // console.log(form_ingreedients.value.length)
+
+    if(inList(newElement.category, allowedCategories) && form_ingreedients.value.length>1 && form_todo.value.length>1){
         console.log('element to save is: ');
         console.log(newElement);
         recipe_id = window.location.href.split("?")[1];
 
         if(editingMode == "True"){
-            console.log("Editing recipe");
             ajaxPut("/recipes/"+recipe_id, newElement, function(){
                 console.log("element updated");
                 window.location.href="";
             });
             editingMode = "False";
         }else{
-            console.log("Saving new recipe");
             ajaxPost("/recipes", newElement, function(){
                 console.log('saved!');
                 // Reload page to show newly added recipe (if in active category)
+                emptyFormElement();
                 showCategory(activeCategory);
             });
         }
-        //CLose popup
+        //Close popup
         popup('popUpNewEvent');
     }else{
-        alert("Kategori finnes ikke. Husk stor forbokstav!");
+        alert("Kategori, ingredienser og beskrivelse må fylles ut! Husk stor forbokstav på kategori.");
     }
 }
 
-//Both for popup and form at bottom of page
 function getFormElement(){
     var newElement={};
     formType="form";
@@ -152,20 +157,30 @@ function getFormElement(){
     newElement.comment=document.getElementById(formType+'-comment').value;
     newElement.category=document.getElementById(formType+'-category').value;
 
-    console.log("BEFORE");
     newElement.ingreedients = createArrayFromInput(document.getElementById(formType+'-ingreedients').value);
     newElement.todo = createArrayFromInput(document.getElementById(formType+'-todo').value, "todo");
 
-    console.log(newElement)
     return newElement;
 }
 
-// comma seperated values
+emptyFormElement = function(){ //Call after recipe is saved
+    document.getElementById(formType+"-name").value="";
+    document.getElementById(formType+"-link").value="";
+    document.getElementById(formType+"-category").value="";
+    document.getElementById(formType+"-image").value="";
+    document.getElementById(formType+"-comment").value="";
+
+    document.getElementById(formType+"-todo").value="";
+    document.getElementById(formType+"-ingreedients").value="";
+}
+
+
 function createArrayFromInput(text, type){
-    console.log("Creating input array");
     if(type == "todo"){
         var elements = text.split("\n\n");
-    }else{
+        console.log("Elements after split:");
+        console.log(elements);
+    }else{ //ingreedients
         var elements = text.split("\n");
     }
     var list = [];

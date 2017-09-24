@@ -1,6 +1,6 @@
 
 var popupForm = {
-    mode: 'deafult' //defaults means new element. other states: edit
+    mode: 'deafult' //default means new element. other states: edit
 }
 
 function popup(windowname, element) {

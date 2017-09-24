@@ -83,7 +83,7 @@ function createRecipeContent(rec){
     row_div.id="row_div";
 
     //INGREEDIENTS
-    if(rec.ingreedients.length>1){
+    if(rec.ingreedients.length>0){
         var ing_div = document.createElement("div");
         ing_div.id = "ing_div";
         var name = document.createElement("h2");
@@ -94,7 +94,7 @@ function createRecipeContent(rec){
     }
 
     //T ODO
-    if(rec.todo.length>1){    
+    if(rec.todo.length>0){
         var todo_div = document.createElement("div");
         todo_div.id="todo_div";
         var name = document.createElement("h2");
