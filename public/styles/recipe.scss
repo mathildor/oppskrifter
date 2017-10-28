@@ -95,6 +95,10 @@ body{
 
 @media (max-width: 550px) {
 
+    #sidebar{
+        left: 70%!important;
+    }
+
     #home{
         margin-left: 10px!important;
         margin-top: -35px!important;
@@ -113,7 +117,6 @@ body{
         }
     }
     #popUpNewEvent{
-        left: 55px!important;
+        left: 40px!important;
     }
-
 }

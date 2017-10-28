@@ -40,6 +40,12 @@ a:hover{
     left: 78%;
 }
 
+@media (max-width: 550px) {
+    #sidebar {
+        left: 68%!important;
+    }
+}
+
 .nav{
     margin-top: 70px;
 }
@@ -119,6 +125,12 @@ a:hover{
 #close a:hover{
     color: #c1c1c1;
 }
+@media (max-width: 550px) {
+    .pop-up-new-event-container{
+        width: 300px!important;
+    }
+}
+
 .pop-up-container, .pop-up-new-event-container{
     text-align:center;
     margin-left: auto;
