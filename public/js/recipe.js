@@ -93,7 +93,7 @@ function createRecipeContent(rec){
         row_div.appendChild(ing_div);
     }
 
-    //T ODO
+    //todo
     if(rec.todo.length>0){
         var todo_div = document.createElement("div");
         todo_div.id="todo_div";
@@ -105,6 +105,24 @@ function createRecipeContent(rec){
 
         div.appendChild(row_div);
         document.getElementById("content").appendChild(div);
+    }
+    //comment
+    if(rec.comment.length>0){
+        var comment_div = document.createElement("div");
+        comment_div.id="comment_div";
+        console.log("Adding comment as child in todo div");
+        todo_div=document.getElementById("todo_div");
+        console.log(todo_div);
+        var name = document.createElement("h2");
+        name.innerHTML = "Kommentarer:";
+        comment_div.appendChild(name);
+        createCommentDOM(rec.comment, comment_div);
+        row_div.appendChild(comment_div);
+
+        div.appendChild(row_div);
+        document.getElementById("content").appendChild(div);
+        //ADDING COMMENT WITHIN todo AREA
+        todo_div.appendChild(comment_div);
     }
 }
 
@@ -122,7 +140,7 @@ createIngreedientListDOM=function(ing, div){
 
     div.appendChild(ing_list);
 }
-createTODOListDOM=function(todo, div){
+createTODOListDOM = function(todo, div){
     console.log("todo");
     console.log(todo);
     var todo_list = document.createElement("ul");
@@ -136,4 +154,10 @@ createTODOListDOM=function(todo, div){
     }
 
     div.appendChild(todo_list);
+}
+
+createCommentDOM = function(comment, div){
+    var comment_dom = document.createElement("p");
+    comment_dom.innerHTML = comment;
+    div.appendChild(comment_dom);
 }
