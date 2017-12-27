@@ -9,7 +9,8 @@ var RecipeSchema   = new Schema({
     category: String,
     img: String,
     link: String,
-    comment: String
+    comment: String,
+    wine: Array
 });
 
 module.exports = mongoose.model('Recipe', RecipeSchema); //first input here defines the collection name in db

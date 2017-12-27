@@ -78,7 +78,6 @@ router.route('/recipes/category/:category_id')
         getCategoryRecipes(req, res, 'recipes');
     });
 
-
 //Category ROUTES:
 router.route('/categorys/')
     //create recipe:
@@ -149,7 +148,6 @@ function getOneFunction(req, res, type){
 }
 
 function deleteOneFunction(req, res, type){
-    console.log('in delete function');
     var Model = modelTypes[type];
     Model.remove({_id: req.params.element_id}, function(err, element) {
         if (err)
@@ -176,6 +174,7 @@ function putOneFunction(req, res, type){
         element.ingreedients  = req.body.ingreedients;
         element.todo          = req.body.todo;
         element.comment       = req.body.comment;
+        element.wine          = req.body.wine;
 
         element.save(function(err) {
             if (err)

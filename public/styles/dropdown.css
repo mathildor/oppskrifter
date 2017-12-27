@@ -1,0 +1,87 @@
+.pop-up-new-event-container p{
+    text-align: left;
+    margin: 0;
+    margin-left: 2px;
+}
+
+.dropbtn {
+    background-color: white;
+    border: #f38585 solid 1px;
+    color: grey;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 12px;
+    width: 100%;
+    text-align: left;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #E8E8F7;
+    cursor: pointer;
+}
+
+.dropdown {
+    width: 100%;
+    float: left;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    width: 100%;
+    text-align: left;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #E8E8F7;
+}
+
+.show {
+    display:block;
+}
+
+.chosenWineForm{
+    display: inline-flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    width: 100%;
+    padding: 8px;
+}
+
+.chosenWineForm button{
+    margin-left: 5px;
+}
+
+.chosenWineForm p{
+    margin-left: 5px;
+}
+
+#wine_div a{
+    width: auto!important;
+    /*padding-left: 38px;*/
+}
+
+#row_div{
+    display: flex!important;
+    flex-wrap: wrap!important;
+}
+#todo_div{
+    width: 58%!important;
+}

@@ -71,42 +71,44 @@ function toggle(div_id) {
     }
 }
 
+
+//TODO Is this ever used?
 function makeContent(windowname, element){
-    console.log("making content");
+    //console.log("making content");
     if(windowname === "popUpDiv"){
-        console.log(element);
-        var srcn=element.getElementsByClassName('to-do-box')[0].getAttribute("img-url");
-        var img=document.getElementsByClassName("pop-up-photo")[0];
-        img.src=srcn;
-
-        var nameElement=document.getElementsByClassName("pp-name")[0];
-        var name=element.children[0].children[0].children[0].innerHTML;
-        nameElement.innerHTML=name;
-
-        var idNumber=element.children[0].getAttribute("id");
-
-        //Ingredienser:
-        var ingDomList=document.getElementsByClassName("ingredienser")[0];
-        var ingredienser=recipe[idNumber].Ingredienser;
-        console.log("ing "+ingredienser);
-
-        //empty from last popup
-        while(document.getElementById("ingr").firstChild){
-            document.getElementById("ingr").removeChild(document.getElementById("ingr").firstChild);
-        }
-
-        for(var j=0; j<ingredienser.length; j++){
-            var ingrediensElement=document.createElement("li");
-            console.log(recipe[idNumber]);
-            ingrediensElement.innerHTML=recipe[idNumber].Ingredienser[j];
-            ingDomList.appendChild(ingrediensElement);
-        }
-        //homepageElement.appendChild(ingDomList);
-
-        var homepageElement=document.getElementsByClassName("pp-homepage")[0];
-        homepageElement.setAttribute("href", element.getAttribute("homepage"));
+        // console.log(element);
+        // var srcn=element.getElementsByClassName('to-do-box')[0].getAttribute("img-url");
+        // var img=document.getElementsByClassName("pop-up-photo")[0];
+        // img.src=srcn;
+        //
+        // var nameElement=document.getElementsByClassName("pp-name")[0];
+        // var name=element.children[0].children[0].children[0].innerHTML;
+        // nameElement.innerHTML=name;
+        //
+        // var idNumber=element.children[0].getAttribute("id");
+        //
+        // //Ingredienser:
+        // var ingDomList=document.getElementsByClassName("ingredienser")[0];
+        // var ingredienser=recipe[idNumber].Ingredienser;
+        // console.log("ing "+ingredienser);
+        //
+        // //empty from last popup
+        // while(document.getElementById("ingr").firstChild){
+        //     document.getElementById("ingr").removeChild(document.getElementById("ingr").firstChild);
+        // }
+        //
+        // for(var j=0; j<ingredienser.length; j++){
+        //     var ingrediensElement=document.createElement("li");
+        //     console.log(recipe[idNumber]);
+        //     ingrediensElement.innerHTML=recipe[idNumber].Ingredienser[j];
+        //     ingDomList.appendChild(ingrediensElement);
+        // }
+        // //homepageElement.appendChild(ingDomList);
+        //
+        // var homepageElement=document.getElementsByClassName("pp-homepage")[0];
+        // homepageElement.setAttribute("href", element.getAttribute("homepage"));
 
     }else{//new event
-
+        //console.log("went to else");
     }
 }

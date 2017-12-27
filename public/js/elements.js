@@ -2,7 +2,7 @@
 
 var activeCategory = "Middag";
 
-showCategory = function(type){ //Type = Bakeverk, Middag, Forrett, Dessert, Frokost, Snacks
+showCategory = function(type){ //Type = Bakeverk, Middag, Forrett, Dessert, Frokost, Snacks, Vin
     console.log("Showing category");
     emptyAllRecipeElements();
     recipes = getCategory(type);
@@ -75,17 +75,6 @@ showRecipeElements = function(recipies){
     }
 }
 
-
-// document.getElementById('saveNewElement-btn').addEventListener('click', function(){
-//     console.log("click in mode: "+popup.mode);
-//     if(popup.mode === 'edit'){
-//         saveEditedElement(activeCategory);
-//     }else{
-//         //removed this functionality? now only form at bottom that saves new elements
-//         //saveNewElement();
-//     }
-// });
-
 function inList(el, list){
     console.log("Category is:");
     console.log(el);
@@ -109,32 +98,35 @@ function saveNewRecipe(){
         console.log(res);
     });
 
-    allowedCategories = ["Middag", "Frokost", "Dessert", "Snacks", "Forrett", "Bakeverk"];
+    allowedCategories = ["Middag", "Frokost", "Dessert", "Snacks", "Forrett", "Bakeverk", "Vin"];
 
     //Set dummy values on missing information:
     if(document.getElementById('form-comment').value.length <1){
         console.log("comment not filled - set to dummy variable");
-        document.getElementById('form-comment').value="-";
+        document.getElementById('form-comment').value="";
+    }
+    //Set dummy values on missing information:
+    if (document.getElementById('form-ingreedients').value.length <1) {
+        console.log("comment not filled - set to dummy variable");
+        document.getElementById('form-ingreedients').value="";
     }
 
     var form_ingreedients = document.getElementById('form-ingreedients');
     var form_todo = document.getElementById('form-todo');
-    // console.log(form_ingreedients.value)
-    // console.log(form_ingreedients.value.length)
 
-    if(inList(newElement.category, allowedCategories) && form_ingreedients.value.length>1 && form_todo.value.length>1){
+    if (inList(newElement.category, allowedCategories)) {
         console.log('element to save is: ');
         console.log(newElement);
         recipe_id = window.location.href.split("?")[1];
 
-        if(editingMode == "True"){
-            ajaxPut("/recipes/"+recipe_id, newElement, function(){
+        if (editingMode == "True") {
+            ajaxPut("/recipes/"+recipe_id, newElement, function() {
                 console.log("element updated");
                 window.location.href="";
             });
             editingMode = "False";
-        }else{
-            ajaxPost("/recipes", newElement, function(){
+        } else {
+            ajaxPost("/recipes", newElement, function() {
                 console.log('saved!');
                 // Reload page to show newly added recipe (if in active category)
                 emptyFormElement();
@@ -143,7 +135,7 @@ function saveNewRecipe(){
         }
         //Close popup
         popup('popUpNewEvent');
-    }else{
+    } else {
         alert("Kategori, ingredienser og beskrivelse må fylles ut! Husk stor forbokstav på kategori.");
     }
 }
@@ -159,8 +151,20 @@ function getFormElement(){
 
     newElement.ingreedients = createArrayFromInput(document.getElementById(formType+'-ingreedients').value);
     newElement.todo = createArrayFromInput(document.getElementById(formType+'-todo').value, "todo");
-
+    newElement.wine = createWineArray();
     return newElement;
+}
+
+createWineArray = function() {
+    var wines = document.getElementsByClassName('chosenWineForm');
+    wines = Array.prototype.slice.call(wines);
+    var returnList = [];
+    if (wines.length > 0) {
+        wines.forEach(function(wineDom){
+            returnList.push(wineDom.id);
+        });
+    }
+    return returnList;
 }
 
 emptyFormElement = function(){ //Call after recipe is saved
@@ -172,14 +176,17 @@ emptyFormElement = function(){ //Call after recipe is saved
 
     document.getElementById(formType+"-todo").value="";
     document.getElementById(formType+"-ingreedients").value="";
+    //empty chosenWines div
+    var wines = document.getElementById('chosenWines');
+    while(wines.firstChild){
+        wines.removeChild(wines.firstChild);
+    };
 }
 
 
 function createArrayFromInput(text, type){
     if(type == "todo"){
         var elements = text.split("\n\n");
-        console.log("Elements after split:");
-        console.log(elements);
     }else{ //ingreedients
         var elements = text.split("\n");
     }
@@ -220,16 +227,12 @@ function editElementInDB(type){ //type = hostels / cites / restaurants
 
     var url = type+"/"+activeElementName;
     ajaxGet(url, function(data){
-        console.log("found element");
-        console.log(data[0]);
         toggleWindow(data[0]); //Sending in current data, to avoid haveing to write everyone again!
     });
 }
 
 function deleteElementInDb(type){ //type = hostels / cites / restaurants
-    console.log('ready to delete from DB');
     var url = type+"/"+activeElementName;
-    console.log(url);
     ajaxDelete(url, function(){
         console.log("deleted element");
     });

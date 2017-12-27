@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="https://www.itewiki.fi/images/info2/paikkatieto-gis.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href='../styles/recipe.min.css' rel='stylesheet' />
+    <link href='../styles/dropdown.css' rel='stylesheet' />
     <link href='../styles/main-original.css' rel='stylesheet' />
 </head>
 <body>
@@ -29,15 +30,29 @@
         </div>
         <div class="pop-up-new-event-container">
             <h1> Endre oppskrift: </h1>
-            <form>
+            <form id="formPop">
+                <p>Navn</p>
                 <input type="text" id="form-name" name="name" placeholder="Navn"><br>
+                <p>Url for bilde</p>
                 <input type="text" id="form-image" name="photo" placeholder="Url for bilde"><br>
                 <!-- TODO: gjør om til dropdown med muligheter -->
+                <p>Kategori</p>
                 <input type="text" id="form-category" name="photo" placeholder="Kategori"><br>
+                <p>Ingredienser</p>
                 <textarea type="text" name="ingredienser" id="form-ingreedients" placeholder="Ingredienser"></textarea><br>
+                <p>Beskrivelse</p>
                 <textarea name="descripcion" id="form-todo" placeholder="Beskrivelse"></textarea><br>
+                <p>Kommentar</p>
                 <textarea name="comment" id="form-comment" placeholder="Kommentar"></textarea><br>
+                <p>Hjemmeside</p>
                 <input type="text" name="homepage" id="form-link" placeholder="Url til hjemmeside"><br>
+                <p>Passende vin</p>
+                <div id="chosenWines"></div>
+                <div id="wineDiv" class="dropdown">
+                <button id="wineDropdownBtn" class="dropbtn">Velg anbefalt vin</button>
+                  <div id="wineDropdown" class="dropdown-content">
+                  </div>
+                </div>
             </form>
             <input type="submit" value="Oppdater oppskrift" id="saveEvent" onclick="saveNewRecipe()"></input>
         </div>
