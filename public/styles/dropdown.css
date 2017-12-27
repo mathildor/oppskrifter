@@ -85,3 +85,7 @@
 #todo_div{
     width: 58%!important;
 }
+
+#popUpNewEvent{
+    overflow: scroll;
+}

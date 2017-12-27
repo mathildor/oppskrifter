@@ -178,9 +178,12 @@ emptyFormElement = function(){ //Call after recipe is saved
     document.getElementById(formType+"-ingreedients").value="";
     //empty chosenWines div
     var wines = document.getElementById('chosenWines');
-    while(wines.firstChild){
-        wines.removeChild(wines.firstChild);
-    };
+    console.log(wines);
+    if(wines){
+        while(wines.firstChild){
+            wines.removeChild(wines.firstChild);
+        }
+    }
 }
 
 
